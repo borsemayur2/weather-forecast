@@ -3,7 +3,24 @@ import { useDebounce } from "../../utils/useDebounce";
 import { setCity } from "../weatherSlice";
 import { useDispatch } from "react-redux";
 
+import { Paper, InputBase } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+}));
+
 const CitySetter = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const [inputTerm, setInputTerm] = useState("");
@@ -18,9 +35,18 @@ const CitySetter = () => {
   };
 
   return (
-    <>
-      <input value={inputTerm} onChange={handleChangeInputTerm} />
-    </>
+    <Paper className={classes.root}>
+      <InputBase
+        autoComplete="on"
+        autoFocus
+        margin="dense"
+        className={classes.input}
+        inputProps={{ "aria-label": "City" }}
+        placeholder="City"
+        value={inputTerm}
+        onChange={handleChangeInputTerm}
+      />
+    </Paper>
   );
 };
 

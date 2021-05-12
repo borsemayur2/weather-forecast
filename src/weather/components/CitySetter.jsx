@@ -1,10 +1,14 @@
+// React imports
 import React, { useEffect, useState } from "react";
-import { useDebounce } from "../../utils/useDebounce";
-import { setCity } from "../weatherSlice";
-import { useDispatch } from "react-redux";
 
+// Third-party imports
+import { useDispatch } from "react-redux";
 import { Paper, InputBase } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
+// Local imports
+import { useDebounce } from "../../utils/useDebounce";
+import { setCity } from "../weatherSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: {

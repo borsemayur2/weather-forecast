@@ -61,13 +61,16 @@ const WeatherCardList = ({ weatherItems }) => {
                     height={50}
                     width={50}
                   />
-                  {tempUnit === "celsius"
-                    ? `${weatherItem.average.main.temp}°C`
-                    : `${weatherItem.average.main.temp}°F`}
-                  Date: {weatherItem.date}
                   {selectedWeatherItem &&
                     weatherItem.date === selectedWeatherItem.date &&
                     "Selected"}
+                  <p>
+                    Temp:{" "}
+                    {tempUnit === "celsius"
+                      ? `${weatherItem.average.main.temp}°C`
+                      : `${weatherItem.average.main.temp}°F`}
+                  </p>
+                  <p>Date: {weatherItem.date}</p>
                 </Paper>
               </Grid>
             ))}

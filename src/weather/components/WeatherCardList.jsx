@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    height: 140,
+    height: 160,
     width: 160,
   },
   control: {
@@ -43,7 +43,7 @@ const WeatherCardList = ({ weatherItems }) => {
     <>
       <Grid container className={classes.root} spacing={2}>
         <Grid item xs={12}>
-          <Grid container justify="center" spacing={3}>
+          <Grid container justify="center" spacing={4}>
             {weatherItems.map((weatherItem) => (
               <Grid key={weatherItem.date} item>
                 <Paper

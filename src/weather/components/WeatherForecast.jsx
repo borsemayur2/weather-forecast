@@ -5,6 +5,7 @@ import { getWeatherListByDays } from "../../utils/getWeatherListByDays";
 import CardNavigator from "./CardNavigator";
 import CityDetailsCard from "./CityDetailsCard";
 import WeatherCardList from "./WeatherCardList.jsx";
+import TempBarChart from "./TempBarChart";
 
 export default function WeatherForecast({ city }) {
   const tempUnit = useSelector((state) => state.weather.tempUnit);
@@ -34,6 +35,7 @@ export default function WeatherForecast({ city }) {
       <CityDetailsCard data={data.city} />
       <CardNavigator pageIndex={pageIndex} lastPageIndex={lastPageIndex} />
       <WeatherCardList weatherItems={weatherItems} tempUnit={tempUnit} />
+      <TempBarChart />
     </>
   );
 }

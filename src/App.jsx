@@ -19,7 +19,10 @@ function App() {
         <h2>Weather Forecast</h2>
       </header>
       <CssBaseline />
-      <Container maxWidth="sm" style={{ backgroundColor: "#ECECEC" }}>
+      <Container
+        maxWidth="sm"
+        style={{ backgroundColor: "#ECECEC", padding: 10 }}
+      >
         <CitySetter />
         {city && <WeatherForecast city={city} />}
       </Container>

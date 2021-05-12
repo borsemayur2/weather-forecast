@@ -31,11 +31,11 @@ export default function WeatherForecast({ city }) {
   const lastPageIndex = Math.floor((weatherList.length - 1) / cardsPerPage);
 
   return (
-    <>
+    <div style={{ marginTop: 10 }}>
       <CityDetailsCard data={data.city} />
       <CardNavigator pageIndex={pageIndex} lastPageIndex={lastPageIndex} />
       <WeatherCardList weatherItems={weatherItems} tempUnit={tempUnit} />
       <TempBarChart />
-    </>
+    </div>
   );
 }

@@ -22,8 +22,8 @@ export default function TempBarChart(props) {
           <BarChart data={selectedWeatherItem.temperatures}>
             <CartesianGrid strokeDasharray="1 1" />
             <XAxis dataKey="time" />
-            <YAxis dataKey="temp" />
-            <Bar dataKey="temp" fill="#8884d8" barSize={20} />
+            <YAxis dataKey="temp" width={30} />
+            <Bar dataKey="temp" fill="#abbbaf" barSize={20} />
             <Tooltip />
           </BarChart>
         </ResponsiveContainer>

@@ -20,10 +20,15 @@ export default function TempBarChart(props) {
     <>
       {selectedWeatherItem && (
         <>
-          <Typography>{selectedWeatherItem.date}</Typography>
+          <Typography
+            style={{ textAlign: "center", color: "gray" }}
+            variant="h6"
+          >
+            {selectedWeatherItem.date}
+          </Typography>
           <ResponsiveContainer width={"100%"} height={250}>
             <BarChart data={selectedWeatherItem.temperatures}>
-              <CartesianGrid strokeDasharray="1 1" />
+              <CartesianGrid />
               <XAxis dataKey="time" />
               <YAxis dataKey="temp" width={30} />
               <Bar dataKey="temp" fill="#abbbaf" barSize={20} />

@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useSelector } from "react-redux";
+import { Typography } from "@material-ui/core";
 
 export default function TempBarChart(props) {
   const selectedWeatherItem = useSelector(
@@ -18,15 +19,18 @@ export default function TempBarChart(props) {
   return (
     <>
       {selectedWeatherItem && (
-        <ResponsiveContainer width={"100%"} height={250}>
-          <BarChart data={selectedWeatherItem.temperatures}>
-            <CartesianGrid strokeDasharray="1 1" />
-            <XAxis dataKey="time" />
-            <YAxis dataKey="temp" width={30} />
-            <Bar dataKey="temp" fill="#abbbaf" barSize={20} />
-            <Tooltip />
-          </BarChart>
-        </ResponsiveContainer>
+        <>
+          <Typography>{selectedWeatherItem.date}</Typography>
+          <ResponsiveContainer width={"100%"} height={250}>
+            <BarChart data={selectedWeatherItem.temperatures}>
+              <CartesianGrid strokeDasharray="1 1" />
+              <XAxis dataKey="time" />
+              <YAxis dataKey="temp" width={30} />
+              <Bar dataKey="temp" fill="#abbbaf" barSize={20} />
+              <Tooltip />
+            </BarChart>
+          </ResponsiveContainer>
+        </>
       )}
     </>
   );

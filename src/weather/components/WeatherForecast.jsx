@@ -21,7 +21,7 @@ export default function WeatherForecast({ city }) {
   if (isFetching) return "fetching...";
   if (!isSuccess) return "Error while fetching weather";
 
-  const cardsPerPage = 3;
+  const cardsPerPage = 2;
   const pageStart = pageIndex * cardsPerPage;
   const pageEnd = pageStart + cardsPerPage;
 

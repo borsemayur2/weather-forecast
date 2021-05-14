@@ -43,3 +43,4 @@ yarn start    // Local preview of production build
 - [ ] Unit tests
 - [ ] Weather Icons (wind, pressure etc.)
 - [ ] Additional data (wind, pressure) in Bar Chart
+- [ ] Sunrise, Sunset and Timezone in City Card 

@@ -6,7 +6,7 @@ import MyLocationIcon from "@material-ui/icons/MyLocation";
 import { IconButton } from "@material-ui/core";
 
 export default function LocationSetter() {
-  const [error, setError] = useState();
+  const [message, setMessage] = useState();
 
   const dispatch = useDispatch();
 
@@ -22,12 +22,18 @@ export default function LocationSetter() {
       );
     };
     const onError = () => {
-      setError("Error while fetching location. Please allow location access");
+      setMessage({
+        content: "Error while fetching location. Please allow location access",
+        severity: "error",
+      });
     };
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     } else {
-      setError("Location not available.");
+      setMessage({
+        content: "Location not available.",
+        severity: "info",
+      });
     }
   };
 
@@ -37,7 +43,12 @@ export default function LocationSetter() {
 
   return (
     <div>
-      {error && <MessageSnackbar message={error} severity="error" />}
+      {message && (
+        <MessageSnackbar
+          message={message.content}
+          severity={message.severity}
+        />
+      )}
       <IconButton onClick={requestLatLong}>
         <MyLocationIcon />
       </IconButton>

@@ -28,7 +28,39 @@ export const getWeatherListByDays = (weatherData, tempUnit) => {
         temp: getAverage(
           _.map(value, (segment) => getTempByUnit(segment.main.temp, tempUnit))
         ),
+        temp_min: getAverage(
+          _.map(value, (segment) =>
+            getTempByUnit(segment.main.temp_min, tempUnit)
+          )
+        ),
+        temp_max: getAverage(
+          _.map(value, (segment) =>
+            getTempByUnit(segment.main.temp_max, tempUnit)
+          )
+        ),
+        feels_like: getAverage(
+          _.map(value, (segment) =>
+            getTempByUnit(segment.main.feels_like, tempUnit)
+          )
+        ),
+        pressure: getAverage(_.map(value, (segment) => segment.main.pressure)),
+        sea_level: getAverage(
+          _.map(value, (segment) => segment.main.sea_level)
+        ),
+        grnd_level: getAverage(
+          _.map(value, (segment) => segment.main.grnd_level)
+        ),
+        humidity: getAverage(_.map(value, (segment) => segment.main.humidity)),
       },
+      wind: {
+        speed: getAverage(_.map(value, (segment) => segment.wind.speed)),
+        deg: getAverage(_.map(value, (segment) => segment.wind.deg)),
+      },
+      clouds: {
+        all: getAverage(_.map(value, (segment) => segment.clouds.all)),
+      },
+      visibility: getAverage(_.map(value, (segment) => segment.visibility)),
+      pop: getAverage(_.map(value, (segment) => segment.pop)),
     };
 
     return {

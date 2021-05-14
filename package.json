@@ -9,6 +9,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "@reduxjs/toolkit": "^1.5.1",
     "@rtk-incubator/rtk-query": "^0.3.0",
     "lodash": "^4.17.21",

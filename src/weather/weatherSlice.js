@@ -7,12 +7,14 @@ export const weatherSlice = createSlice({
     tempUnit: "fahrenheit",
     pageIndex: 0,
     selecetedWeatherItem: null,
+    location: null,
   },
   reducers: {
     setCity: (state, action) => {
       state.city = action.payload.city;
       state.pageIndex = 0;
       state.selectedWeatherItem = null;
+      state.location = null;
     },
     setNextPage: (state) => {
       state.pageIndex += 1;
@@ -26,6 +28,11 @@ export const weatherSlice = createSlice({
     setTempUnit: (state, action) => {
       state.tempUnit = action.payload.tempUnit;
     },
+    setLocation: (state, action) => {
+      state.location = action.payload.location;
+      state.pageIndex = 0;
+      state.selectedWeatherItem = null;
+    },
   },
 });
 
@@ -35,6 +42,7 @@ export const {
   setPreviousPage,
   setSelectedWeatherItem,
   setTempUnit,
+  setLocation,
 } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

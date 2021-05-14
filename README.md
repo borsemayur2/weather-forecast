@@ -2,6 +2,8 @@
 
 App created using React.js, Redux, Material UI, RTK Query, and Vite
 
+![App screenshot](screenshot.png)
+
 ### Commands
 
 ```
@@ -39,4 +41,5 @@ yarn start    // Local preview of production build
 - [ ] Search by current location (latitude, longitude)
 - [ ] Set city by latitude, longitude
 - [ ] Unit tests
+- [ ] Weather Icons (wind, pressure etc.)
 - [ ] Additional data (wind, pressure) in Bar Chart

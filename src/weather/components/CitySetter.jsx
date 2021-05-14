@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 
 // Third-party imports
 import { useDispatch } from "react-redux";
-import { Paper, InputBase } from "@material-ui/core";
+import { Paper, InputBase, IconButton, Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import SearchIcon from "@material-ui/icons/Search";
 
 // Local imports
 import { useDebounce } from "../../utils/useDebounce";
 import { setCity } from "../weatherSlice";
+import LocationSetter from "./LocationSetter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +51,11 @@ const CitySetter = () => {
         value={inputTerm}
         onChange={handleChangeInputTerm}
       />
+      <IconButton onClick={() => dispatch(setCity({ city: inputTerm }))}>
+        <SearchIcon />
+      </IconButton>
+      <Divider orientation="vertical" flexItem />
+      <LocationSetter />
     </Paper>
   );
 };

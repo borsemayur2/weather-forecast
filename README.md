@@ -21,6 +21,7 @@ yarn start    // Local preview of production build
 ### Features
 
 - [x] Search by city
+- [x] Search by current location (latitude, longitude)
 - [x] Responsive UI
 - [x] Data Caching
 - [x] Error handling
@@ -38,9 +39,8 @@ yarn start    // Local preview of production build
 
 ### Todos
 
-- [ ] Search by current location (latitude, longitude)
 - [ ] Set city by latitude, longitude
 - [ ] Unit tests
 - [ ] Weather Icons (wind, pressure etc.)
 - [ ] Additional data (wind, pressure) in Bar Chart
-- [ ] Sunrise, Sunset and Timezone in City Card 
+- [ ] Sunrise, Sunset and Timezone in City Card

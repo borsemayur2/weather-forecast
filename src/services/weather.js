@@ -13,9 +13,14 @@ export const weatherApi = createApi({
       query: (city) =>
         `?q=${city}&units=imperial&appid=${OPENWEATHERMAP_API_KEY}`,
     }),
+    getWeatherByLocation: builder.query({
+      query: ({ latitude, longitude }) =>
+        `?lat=${latitude}&lon=${longitude}&units=imperial&appid=${OPENWEATHERMAP_API_KEY}`,
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetWeatherByCityQuery } = weatherApi;
+export const { useGetWeatherByCityQuery, useGetWeatherByLocationQuery } =
+  weatherApi;

@@ -1,18 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useGetWeatherByCityQuery } from "../../services/weather";
 import { getWeatherListByDays } from "../../utils/getWeatherListByDays";
 import CardNavigator from "./CardNavigator";
 import CityDetailsCard from "./CityDetailsCard";
 import WeatherCardList from "./WeatherCardList.jsx";
 import TempBarChart from "./TempBarChart";
 
-export default function WeatherForecast({ city }) {
+export default function WeatherForecast({ getWeatherQuery }) {
   const tempUnit = useSelector((state) => state.weather.tempUnit);
   const pageIndex = useSelector((state) => state.weather.pageIndex);
 
   const { data, error, isLoading, isFetching, isSuccess, isError } =
-    useGetWeatherByCityQuery(city);
+    getWeatherQuery();
 
   if (isError) {
     return error.data?.message || error.message;

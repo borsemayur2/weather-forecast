@@ -9,9 +9,17 @@ import { CssBaseline, Container } from "@material-ui/core";
 import CitySetter from "./weather/components/CitySetter";
 import WeatherForecast from "./weather/components/WeatherForecast";
 import "./App.css";
+import {
+  useGetWeatherByCityQuery,
+  useGetWeatherByLocationQuery,
+} from "./services/weather";
 
 function App() {
   const city = useSelector((state) => state.weather.city);
+  const location = useSelector((state) => state.weather.location);
+  const getWeatherQuery = location
+    ? () => useGetWeatherByLocationQuery(location)
+    : () => useGetWeatherByCityQuery(city);
 
   return (
     <div className="App">
@@ -19,12 +27,11 @@ function App() {
         <h2>Weather Forecast</h2>
       </header>
       <CssBaseline />
-      <Container
-        maxWidth="sm"
-        style={{ backgroundColor: "#ECECEC", padding: 10 }}
-      >
+      <Container maxWidth="sm" style={{ padding: 10 }}>
         <CitySetter />
-        {city && <WeatherForecast city={city} />}
+        {(city || location) && (
+          <WeatherForecast getWeatherQuery={getWeatherQuery} />
+        )}
       </Container>
     </div>
   );

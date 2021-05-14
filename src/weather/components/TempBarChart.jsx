@@ -28,7 +28,7 @@ export default function TempBarChart(props) {
           </Typography>
           <ResponsiveContainer width={"100%"} height={250}>
             <BarChart data={selectedWeatherItem.temperatures}>
-              <CartesianGrid strokeDasharray="1 1" />
+              <CartesianGrid />
               <XAxis dataKey="time" />
               <YAxis dataKey="temp" width={30} />
               <Bar dataKey="temp" fill="#abbbaf" barSize={20} />

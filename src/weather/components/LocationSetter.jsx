@@ -12,6 +12,10 @@ export default function LocationSetter() {
 
   const requestLatLong = () => {
     const onSuccess = (position) => {
+      setMessage({
+        content: "Location set successfully.",
+        severity: "success",
+      });
       dispatch(
         setLocation({
           location: {
@@ -28,6 +32,10 @@ export default function LocationSetter() {
       });
     };
     if ("geolocation" in navigator) {
+      setMessage({
+        content: "Fetching current location...",
+        severity: "info",
+      });
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     } else {
       setMessage({

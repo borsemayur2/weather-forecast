@@ -1,5 +1,5 @@
 // React imports
-import React from "react";
+import React, { useState } from "react";
 
 // Third-party imports
 import { useSelector } from "react-redux";
@@ -17,9 +17,10 @@ import {
 function App() {
   const city = useSelector((state) => state.weather.city);
   const location = useSelector((state) => state.weather.location);
-  const getWeatherQuery = location
-    ? () => useGetWeatherByLocationQuery(location)
-    : () => useGetWeatherByCityQuery(city);
+  let getWeatherQuery = () =>
+    location
+      ? () => useGetWeatherByLocationQuery(location)
+      : () => useGetWeatherByCityQuery(city);
 
   return (
     <div className="App">
@@ -29,8 +30,9 @@ function App() {
       <CssBaseline />
       <Container maxWidth="sm" style={{ padding: 10 }}>
         <CitySetter />
+        <button onClick={getWeatherQuery}>Refresh</button>
         {(city || location) && (
-          <WeatherForecast getWeatherQuery={getWeatherQuery} />
+          <WeatherForecast getWeatherQuery={getWeatherQuery()} />
         )}
       </Container>
     </div>

@@ -10,8 +10,10 @@ export const weatherApi = createApi({
   }),
   endpoints: (builder) => ({
     getWeatherByCity: builder.query({
-      query: (city) =>
-        `?q=${city}&units=imperial&appid=${OPENWEATHERMAP_API_KEY}`,
+      query: (city) => {
+        console.log("CITY", city);
+        return `?q=${city}&units=imperial&appid=${OPENWEATHERMAP_API_KEY}`;
+      },
     }),
     getWeatherByLocation: builder.query({
       query: ({ latitude, longitude }) =>

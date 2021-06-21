@@ -33,6 +33,16 @@ export const weatherSlice = createSlice({
       state.pageIndex = 0;
       state.selectedWeatherItem = null;
     },
+    setUserWeatherInfo: (state, action) => {
+      if (!action.payload) return;
+      const { city, location, pageIndex, selectedWeatherItem, tempUnit } =
+        action.payload;
+      state.city = city;
+      state.location = location;
+      state.pageIndex = pageIndex;
+      state.selectedWeatherItem = selectedWeatherItem;
+      state.tempUnit = tempUnit;
+    },
   },
 });
 
@@ -43,6 +53,7 @@ export const {
   setSelectedWeatherItem,
   setTempUnit,
   setLocation,
+  setUserWeatherInfo,
 } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

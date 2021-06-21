@@ -29,7 +29,15 @@ const WeatherCardList = ({ weatherItems }) => {
         dispatch(
           setSelectedWeatherItem({ selectedWeatherItem: _selectedWeatherItem })
         );
+      } else {
+        dispatch(
+          setSelectedWeatherItem({ selectedWeatherItem: weatherItems[0] })
+        );
       }
+    } else {
+      dispatch(
+        setSelectedWeatherItem({ selectedWeatherItem: weatherItems[0] })
+      );
     }
   }, [weatherItems]);
 
